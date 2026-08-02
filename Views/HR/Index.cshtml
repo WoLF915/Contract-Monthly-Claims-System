@@ -1,0 +1,74 @@
+@model List<ContractMonthlyClaimSystem.Models.Claim>
+
+@{
+    ViewData["Title"] = "HR - Approved Claims";
+    var totalAmount = Model.Sum(c => c.HoursWorked * c.HourlyRate);
+    var totalHours = Model.Sum(c => c.HoursWorked);
+}
+
+<h2 class="mb-4"><i class="bi bi-cash-stack me-2"></i>Approved Claims - Payment Processing</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h6 class="text-muted">Total Claims</h6>
+                <h3 class="fw-bold">@Model.Count</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h6 class="text-muted">Total Hours</h6>
+                <h3 class="fw-bold">@totalHours</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h6 class="text-muted">Total Payment Due</h6>
+                <h3 class="fw-bold text-success">R@(totalAmount.ToString("N2"))</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-header bg-white">
+        <h5 class="mb-0">Invoice Summary</h5>
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th class="ps-4">Claim ID</th>
+                    <th>Lecturer</th>
+                    <th>Hours</th>
+                    <th>Rate</th>
+                    <th>Amount</th>
+                    <th class="pe-4">Date Submitted</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var claim in Model)
+                {
+                    <tr>
+                        <td class="ps-4">#@claim.Id</td>
+                        <td>@claim.Lecturer.Name</td>
+                        <td>@claim.HoursWorked</td>
+                        <td>R@(claim.HourlyRate)</td>
+                        <td class="fw-semibold">R@((claim.HoursWorked * claim.HourlyRate).ToString("N2"))</td>
+                        <td class="pe-4">@claim.DateSubmitted.ToString("dd MMM yyyy")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

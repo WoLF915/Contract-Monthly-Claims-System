@@ -34,7 +34,7 @@
                     <tr>
                         <td class="ps-4">#@claim.Id</td>
                         <td>@claim.HoursWorked</td>
-                        <td>R@claim.HourlyRate</td>
+                        <td>R@(claim.HourlyRate)</td>
                         <td class="fw-semibold">R@(claim.HoursWorked * claim.HourlyRate)</td>
                         <td>
                             @foreach (var doc in claim.SupportingDocuments)
