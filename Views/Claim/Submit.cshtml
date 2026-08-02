@@ -25,6 +25,12 @@
                     </div>
 
                     <div class="mb-3">
+    <label class="form-label fw-semibold">Estimated Total Payment (R)</label>
+    <input type="text" id="totalPayment" class="form-control bg-light" readonly value="0.00" />
+    <small class="text-muted">Calculated automatically based on hours and rate.</small>
+</div>
+
+                    <div class="mb-3">
                         <label asp-for="Notes" class="form-label fw-semibold">Additional Notes</label>
                         <textarea asp-for="Notes" class="form-control" rows="3" placeholder="Optional notes about this claim"></textarea>
                         <span asp-validation-for="Notes" class="text-danger"></span>
@@ -49,4 +55,15 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        function calculateTotal() {
+            const hours = parseFloat(document.getElementById("HoursWorked").value) || 0;
+            const rate = parseFloat(document.getElementById("HourlyRate").value) || 0;
+            const total = hours * rate;
+            document.getElementById("totalPayment").value = total.toFixed(2);
+        }
+
+        document.getElementById("HoursWorked").addEventListener("input", calculateTotal);
+        document.getElementById("HourlyRate").addEventListener("input", calculateTotal);
+    </script>
 }
