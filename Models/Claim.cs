@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace ContractMonthlyClaimSystem.Models
 {
@@ -9,6 +10,8 @@ namespace ContractMonthlyClaimSystem.Models
         public int Id { get; set; }
 
         public int LecturerId { get; set; }
+
+        [ValidateNever]
         public Lecturer Lecturer { get; set; } = null!;
 
         [Required(ErrorMessage = "Hours worked is required.")]
@@ -25,6 +28,7 @@ namespace ContractMonthlyClaimSystem.Models
         public ClaimStatus Status { get; set; } = ClaimStatus.Pending;
         public DateTime DateSubmitted { get; set; } = DateTime.Now;
 
+        [ValidateNever]
         public List<SupportingDocument> SupportingDocuments { get; set; } = new List<SupportingDocument>();
     }
 }

@@ -1,0 +1,62 @@
+@model List<ContractMonthlyClaimSystem.Models.Claim>
+
+@{
+    ViewData["Title"] = "Claim Status";
+}
+
+<h2 class="mb-4"><i class="bi bi-clock-history me-2"></i>Your Claims</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th class="ps-4">Claim ID</th>
+                    <th>Hours Worked</th>
+                    <th>Hourly Rate</th>
+                    <th>Total</th>
+                    <th>Documents</th>
+                    <th class="pe-4">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var claim in Model)
+                {
+                    <tr>
+                        <td class="ps-4">#@claim.Id</td>
+                        <td>@claim.HoursWorked</td>
+                        <td>R@claim.HourlyRate</td>
+                        <td class="fw-semibold">R@(claim.HoursWorked * claim.HourlyRate)</td>
+                        <td>
+                            @foreach (var doc in claim.SupportingDocuments)
+                            {
+                                <a href="@doc.FilePath" target="_blank">@doc.FileName</a>
+                                <br />
+                            }
+                        </td>
+                        <td class="pe-4">
+                            @{
+                                var badgeClass = claim.Status switch
+                                {
+                                    ContractMonthlyClaimSystem.Models.ClaimStatus.Approved => "bg-success",
+                                    ContractMonthlyClaimSystem.Models.ClaimStatus.Rejected => "bg-danger",
+                                    _ => "bg-warning text-dark"
+                                };
+                            }
+                            <span class="badge @badgeClass px-3 py-2">@claim.Status</span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
