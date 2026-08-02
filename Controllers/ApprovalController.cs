@@ -9,10 +9,16 @@ namespace ContractMonthlyClaimSystem.Controllers
     {
         private readonly AppDbContext _context;
 
-        public ApprovalController(AppDbContext context)
-        {
-            _context = context;
-        }
+// Predefined thresholds for automated flagging - claims exceeding these are highlighted for extra scrutiny
+private const double MaxReasonableHours = 60;
+private const double MaxReasonableRate = 1000;
+
+public ApprovalController(AppDbContext context)
+{
+    _context = context;
+}
+
+        
 
         // GET: /Approval/Index
         public async Task<IActionResult> Index()
