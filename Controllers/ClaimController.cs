@@ -60,6 +60,13 @@ namespace ContractMonthlyClaimSystem.Controllers
                         return RedirectToAction("Status");
                     }
 
+                     const long maxFileSize = 5 * 1024 * 1024; // 5MB
+    if (document.Length > maxFileSize)
+    {
+        TempData["Error"] = "File is too large. Maximum allowed size is 5MB.";
+        return RedirectToAction("Status");
+    }
+
                     var uploadsFolder = Path.Combine("wwwroot", "uploads");
                     Directory.CreateDirectory(uploadsFolder);
 
