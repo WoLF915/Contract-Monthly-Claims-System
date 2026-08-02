@@ -1,0 +1,20 @@
+# Build results
+bin/
+obj/
+**/bin/
+**/obj/
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+
+# User-specific files
+*.user
+
+# NuGet
+*.nupkg

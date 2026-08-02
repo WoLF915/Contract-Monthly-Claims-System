@@ -1,0 +1,8 @@
+[33m7adffcf[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Add xUnit test project with unit tests covering claim validation, persistence, and approval workflow
+[33m6647e17[m Implement functional claim approval workflow with database updates and status feedback
+[33me311bd9[m Wire up claim submission to save to database, handle file uploads, and display real claim status with feedback messages
+[33m2ec119a[m Add EF Core with SQLite, create AppDbContext, and generate initial database migration
+[33mc8cb152[m Build out Home page as a landing page with navigation cards to main features
+[33m41fbf10[m Add validation attributes to Claim model and display validation messages on Submit form
+[33m96a97f4[m Polish views with Bootstrap cards, icons, and improved layout
+[33m0938ae5[m Add Part 1 prototype: models, controllers, and views for claim submission, status, and approval
