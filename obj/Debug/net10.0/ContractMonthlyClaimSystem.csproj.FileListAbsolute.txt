@@ -2,7 +2,6 @@ C:\Users\User\ContractMonthlyClaimSystem\bin\Debug\net10.0\appsettings.Developme
 C:\Users\User\ContractMonthlyClaimSystem\bin\Debug\net10.0\appsettings.json
 C:\Users\User\ContractMonthlyClaimSystem\bin\Debug\net10.0\ContractMonthlyClaimSystem.staticwebassets.runtime.json
 C:\Users\User\ContractMonthlyClaimSystem\bin\Debug\net10.0\ContractMonthlyClaimSystem.staticwebassets.endpoints.json
-C:\Users\User\ContractMonthlyClaimSystem\bin\Debug\net10.0\ContractMonthlyClaimSystem.exe
 C:\Users\User\ContractMonthlyClaimSystem\bin\Debug\net10.0\ContractMonthlyClaimSystem.deps.json
 C:\Users\User\ContractMonthlyClaimSystem\bin\Debug\net10.0\ContractMonthlyClaimSystem.runtimeconfig.json
 C:\Users\User\ContractMonthlyClaimSystem\bin\Debug\net10.0\ContractMonthlyClaimSystem.dll
