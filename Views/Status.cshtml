@@ -1,0 +1,41 @@
+@model List<ContractMonthlyClaimSystem.Models.Claim>
+
+@{
+    ViewData["Title"] = "Claim Status";
+}
+
+<h2>Your Claims</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Claim ID</th>
+            <th>Hours Worked</th>
+            <th>Hourly Rate</th>
+            <th>Total</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.Id</td>
+                <td>@claim.HoursWorked</td>
+                <td>R@claim.HourlyRate</td>
+                <td>R@(claim.HoursWorked * claim.HourlyRate)</td>
+                <td>
+                    @{
+                        var badgeClass = claim.Status switch
+                        {
+                            ContractMonthlyClaimSystem.Models.ClaimStatus.Approved => "bg-success",
+                            ContractMonthlyClaimSystem.Models.ClaimStatus.Rejected => "bg-danger",
+                            _ => "bg-warning text-dark"
+                        };
+                    }
+                    <span class="badge @badgeClass">@claim.Status</span>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

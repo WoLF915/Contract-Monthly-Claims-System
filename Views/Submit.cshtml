@@ -1,0 +1,32 @@
+@model ContractMonthlyClaimSystem.Models.Claim
+
+@{
+    ViewData["Title"] = "Submit Claim";
+}
+
+<h2>Submit a Claim</h2>
+
+<form asp-controller="Claim" asp-action="Submit" method="post" enctype="multipart/form-data">
+    <div class="form-group mb-3">
+        <label asp-for="HoursWorked">Hours Worked</label>
+        <input asp-for="HoursWorked" class="form-control" />
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="HourlyRate">Hourly Rate (R)</label>
+        <input asp-for="HourlyRate" class="form-control" />
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Notes">Additional Notes</label>
+        <textarea asp-for="Notes" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Supporting Document</label>
+        <input type="file" name="document" class="form-control" />
+        <small class="text-muted">Accepted formats: .pdf, .docx, .xlsx</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg">Submit Claim</button>
+</form>
