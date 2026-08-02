@@ -1,8 +1,43 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center mb-5">
+    <h1 class="display-5 fw-bold">Contract Monthly Claim System</h1>
+    <p class="lead text-muted">Streamlining claim submission and approval for Independent Contractor lecturers.</p>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm text-center">
+            <div class="card-body">
+                <i class="bi bi-file-earmark-plus display-4 text-primary mb-3"></i>
+                <h5 class="card-title">Submit a Claim</h5>
+                <p class="card-text text-muted">Lecturers can log hours worked, hourly rate, and upload supporting documents.</p>
+                <a asp-controller="Claim" asp-action="Submit" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm text-center">
+            <div class="card-body">
+                <i class="bi bi-clock-history display-4 text-warning mb-3"></i>
+                <h5 class="card-title">Track Claim Status</h5>
+                <p class="card-text text-muted">View the real-time status of submitted claims — Pending, Approved, or Rejected.</p>
+                <a asp-controller="Claim" asp-action="Status" class="btn btn-warning">View Status</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm text-center">
+            <div class="card-body">
+                <i class="bi bi-clipboard-check display-4 text-success mb-3"></i>
+                <h5 class="card-title">Approve Claims</h5>
+                <p class="card-text text-muted">Coordinators and Academic Managers can review and approve or reject claims.</p>
+                <a asp-controller="Approval" asp-action="Index" class="btn btn-success">Review Claims</a>
+            </div>
+        </div>
+    </div>
 </div>
