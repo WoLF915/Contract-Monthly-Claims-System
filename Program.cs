@@ -9,8 +9,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();
 
-var connString = builder.Configuration.GetConnectionString("DefaultConnection");
-Console.WriteLine($"[DEBUG] Connection string length: {connString?.Length ?? 0}");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
