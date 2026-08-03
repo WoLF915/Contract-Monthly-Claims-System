@@ -1,0 +1,6 @@
+bin/
+obj/
+ContractMonthlyClaimSystem.Tests/
+*.db
+.vs/
+.vscode/
