@@ -26,7 +26,7 @@ namespace ContractMonthlyClaimSystem.Models
         public string Notes { get; set; } = string.Empty;
 
         public ClaimStatus Status { get; set; } = ClaimStatus.Pending;
-        public DateTime DateSubmitted { get; set; } = DateTime.Now;
+        public DateTime DateSubmitted { get; set; } = DateTime.UtcNow;
 
         [ValidateNever]
         public List<SupportingDocument> SupportingDocuments { get; set; } = new List<SupportingDocument>();

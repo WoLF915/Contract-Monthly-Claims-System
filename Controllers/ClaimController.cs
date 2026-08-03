@@ -44,7 +44,7 @@ namespace ContractMonthlyClaimSystem.Controllers
 
                 claim.LecturerId = lecturer.Id;
                 claim.Status = ClaimStatus.Pending;
-                claim.DateSubmitted = DateTime.Now;
+                claim.DateSubmitted = DateTime.UtcNow;
 
                 _context.Claims.Add(claim);
                 await _context.SaveChangesAsync();
